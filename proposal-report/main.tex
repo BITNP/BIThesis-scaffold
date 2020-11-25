@@ -22,24 +22,8 @@
 %
 % Compile with: xelatex -> biber -> xelatex -> xelatex
 
-\documentclass[UTF8,AutoFakeBold,AutoFakeSlant,zihao=-4]{ctexart}
-\usepackage[a4paper,left=3cm,right=2.4cm,top=2.6cm,bottom=2.38cm,includeheadfoot]{geometry}
-\usepackage{fontspec}
-\usepackage{setspace}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{pdfpages}
-\usepackage{setspace}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{caption}
+\documentclass[proposal-report]{bitart}
 
-% 设置参考文献编译后端为 biber，引用格式为 GB/T7714-2015 格式
-% 参考文献使用宏包见 https://github.com/hushidong/biblatex-gb7714-2015
-\usepackage[style=gb7714-2015,backend=biber]{biblatex}
-
-% 参考文献引用文件 refs.bib
-\addbibresource{misc/refs.bib}
 
 \newcommand{\deptName}{计算机学院}
 \newcommand{\majorName}{计算机科学与技术}
@@ -48,61 +32,14 @@
 \newcommand{\mentorName}{张哈希}
 \newcommand{\offCampusMentorName}{刘阿贝尔}
 
-% 定义 caption 字体为楷体
-\DeclareCaptionFont{kaiticaption}{\kaishu \normalsize}
-
-% 设置图片的 caption 格式
-\renewcommand{\thefigure}{\thesection-\arabic{figure}}
-\captionsetup[figure]{font=small,labelsep=space,skip=10bp,labelfont=bf,font=kaiticaption}
-
-% 设置表格的 caption 格式
-\renewcommand{\thetable}{\thesection-\arabic{table}}
-\captionsetup[table]{font=small,labelsep=space,skip=10bp,labelfont=bf,font=kaiticaption}
-
 % 定义一个概念
 \newtheorem{definition}{概念}[section]
 
-% 输出大写数字日期
-\CTEXoptions[today=big]
 
-% 将西文字体设置为 Times New Roman
-\setromanfont{Times New Roman}
-
-%% 将中文楷体设置为 SIMKAI.TTF（如果需要）
-% \setCJKfamilyfont{zhkai}{[SIMKAI.TTF]}
-% \newcommand*{\kaiti}{\CJKfamily{zhkai}}
-
-% 设置文档标题深度
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
-
-%%
-% 设置一级标题、二级标题格式
-% 一级标题：小三，宋体，加粗，段前段后各半行
-\ctexset{section={
-  format={\raggedright \bfseries \songti \zihao{-3}},
-  beforeskip = 24bp plus 1ex minus .2ex,
-  afterskip = 24bp plus .2ex,
-  fixskip = true,
-  name = {,.\quad}
-  }
-}
-% 二级标题：小四，宋体，加粗，段前段后各半行
-\ctexset{subsection={
-  format = {\bfseries \songti \raggedright \zihao{4}},
-  beforeskip =24bp plus 1ex minus .2ex,
-  afterskip = 24bp plus .2ex,
-  fixskip = true,
-  }
-}
 
 %%
 % 文档开始
 \begin{document}
-
-% 报告封面
-\input{misc/cover.tex}
-
 % 评审表
 \includepdf[pages=-]{misc/reviewTableBlank.pdf}
 
@@ -111,12 +48,7 @@
 \pagestyle{fancy}
 % 正文从第一页开始计算页码
 \setcounter{page}{1}
-% 页眉和页脚（页码）的格式设定
-\fancyhf{}
-\fancyhead[R]{\fontsize{10.5pt}{10.5pt}\selectfont{北京理工大学本科生毕业设计（论文）开题报告}}
-\fancyfoot[R]{\fontsize{9pt}{9pt}\selectfont{\thepage}}
-\renewcommand{\headrulewidth}{1pt}
-\renewcommand{\footrulewidth}{0pt}
+
 
 % 正文 22 磅的行距，段前段后间距为 0
 \setlength{\parskip}{0em}

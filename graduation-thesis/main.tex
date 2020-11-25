@@ -20,52 +20,10 @@
 % Compile with: xelatex -> biber -> xelatex -> xelatex
 
 % 章节支持、单面打印：ctexbook
-\documentclass[UTF8,AutoFakeBold,AutoFakeSlant,zihao=-4,oneside,openany]{ctexbook}
-\usepackage[a4paper,left=3cm,right=2.6cm,top=3.5cm,bottom=2.9cm]{geometry}
-% 目前 29mm 最接近 Word 排版
-\usepackage{xeCJK}
-\usepackage{titletoc}
-\usepackage{fontspec}
-\usepackage{setspace}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{pdfpages}
-\usepackage{setspace}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{caption}
-\usepackage{tikz}
-\usepackage{etoolbox}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{caption}
-\usepackage{array}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{pdfpages}
-
-% 设置参考文献编译后端为 biber，引用格式为 GB/T7714-2015 格式
-% 参考文献使用宏包见 https://github.com/hushidong/biblatex-gb7714-2015
-\usepackage[
-  backend=biber,
-  style=gb7714-2015,
-  gbalign=gb7714-2015,
-  gbnamefmt=lowercase,
-  gbpub=false,
-  doi=false,
-  url=false,
-  eprint=false,
-  isbn=false,
-]{biblatex}
+\documentclass[bachelor]{bitbook}
 
 % 参考文献引用文件位于 misc/ref.bib
 \addbibresource{misc/ref.bib}
-
-% 西文字体默认为 Times New Roman
-\setromanfont{Times New Roman}
-% 论文题目字体为华文细黑
-\setCJKfamilyfont{xihei}{[STXIHEI.TTF]} % 若希望使用本机字体，也可以用 {STXihei} 来调用
-\newcommand{\xihei}{\CJKfamily{xihei}}
 
 % 在这里填写你的论文中英文题目
 \newcommand{\thesisTitle}{北京理工大学本科生毕业设计（论文）题目}
@@ -79,117 +37,6 @@
 \newcommand{\mentorName}{张哈希}
 % 如果你的毕设为校外毕设，请将下面这一行语句解除注释（删除第一个百分号字符）并在第二组花括号中填写你的校外毕设导师名字
 % \newcommand{\externalMentorName}{左偏树}
-
-% 主题页面格式：BIThesis
-\fancypagestyle{BIThesis}{
-  % 页眉高度
-  \setlength{\headheight}{20pt}
-  % 页码高度（不完美，比规定稍微靠下 2mm）
-  \setlength{\footskip}{14pt}
-
-  \fancyhf{}
-  % 定义页眉、页码
-  \fancyhead[C]{\zihao{4}\ziju{0.08}\songti{北京理工大学本科生毕业设计（论文）}}
-  \fancyfoot[C]{\songti\zihao{5} \thepage}
-  % 页眉分割线稍微粗一些
-  \renewcommand{\headrulewidth}{0.6pt}
-}
-
-% 设置章节格式
-% 一级标题：黑体，三号，加粗；间距：段前 0.5 行，段后 1 行；
-\ctexset{chapter={
-    name = {第,章},
-    number = {\arabic{chapter}},
-    format = {\heiti \bfseries \centering \zihao{3}},
-    aftername = \hspace{9bp},
-    pagestyle = BIThesis,
-    beforeskip = 8bp,
-    afterskip = 32bp,
-    fixskip = true,
-  }
-}
-
-% 二级标题：黑体，四号，加粗；间距：段前 0.5 行，段后 0 行；
-\ctexset{section={
-    number = {\thechapter.\hspace{4bp}\arabic{section}},
-    format = {\heiti \raggedright \bfseries \zihao{4}},
-    aftername = \hspace{8bp},
-    beforeskip = 20bp plus 1ex minus .2ex,
-    afterskip = 18bp plus .2ex,
-    fixskip = true,
-  }
-}
-
-% 三级标题：黑体、小四、加粗；间距：段前 0.5 行，段后 0 行；
-\ctexset{subsection={
-    number = {\thechapter.\hspace{3bp}\arabic{section}.\hspace{3bp}\arabic{subsection}},
-    format = {\heiti \bfseries \raggedright \zihao{-4}},
-    aftername = \hspace{7bp},
-    beforeskip = 17bp plus 1ex minus .2ex,
-    afterskip = 14bp plus .2ex,
-    fixskip = true,
-  }
-}
-
-% 设置目录样式
-% 添加 PDF 链接
-\addtocontents{toc}{\protect\hypersetup{hidelinks}}
-
-% 解决「目录」二字的格式问题
-\renewcommand{\contentsname}{
-  \fontsize{16pt}{\baselineskip}
-  \normalfont\heiti{目~~~~录}
-  \vspace{-8pt}
-}
-% 定义目录样式
-\titlecontents{chapter}[0pt]{\songti \zihao{-4}}
-{\thecontentslabel\hspace{\ccwd}}{}
-{\hspace{.5em}\titlerule*{.}\contentspage}
-\titlecontents{section}[1\ccwd]{\songti \zihao{-4}}
-{\thecontentslabel\hspace{\ccwd}}{}
-{\hspace{.5em}\titlerule*{.}\contentspage}
-\titlecontents{subsection}[2\ccwd]{\songti \zihao{-4}}
-{\thecontentslabel\hspace{\ccwd}}{}
-{\hspace{.5em}\titlerule*{.}\contentspage}
-
-% 前置页面（原创性声明、中英文摘要、目录等）
-\renewcommand{\frontmatter}{
-  \pagenumbering{Roman}
-  \pagestyle{BIThesis}
-}
-
-% 正文页面
-\renewcommand{\mainmatter}{
-  \pagenumbering{arabic}
-  \pagestyle{BIThesis}
-}
-
-% 设置 caption 与 figure 之间的距离
-\setlength{\abovecaptionskip}{11pt}
-\setlength{\belowcaptionskip}{9pt}
-
-% 设置图片的 caption 格式
-\renewcommand{\thefigure}{\thechapter-\arabic{figure}}
-\captionsetup[figure]{font=small,labelsep=space}
-
-% 设置表格的 caption 格式和 caption 与 table 之间的垂直距离
-\renewcommand{\thetable}{\thechapter-\arabic{table}}
-\captionsetup[table]{font=small,labelsep=space,skip=2pt}
-
-% 调整底层 TeX 排版引擎参数以保证所有段落能够很好地以两端对齐的方式呈现
-\tolerance=1
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
-
-% 设置数学公式编号格式
-\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
-
-\newcommand{\unnumchapter}[1]{
-  \chapter*{\vskip 10bp\textmd{#1} \vskip -6bp}
-  \addcontentsline{toc}{chapter}{#1}
-  \stepcounter{chapter}
-}
 
 % 文档开始
 \begin{document}

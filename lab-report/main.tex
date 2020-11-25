@@ -5,19 +5,7 @@
 %
 % Compile with: xelatex -> xelatex -> xelatex
 
-\documentclass[UTF8,AutoFakeBold,AutoFakeSlant,12pt]{ctexart}
-\usepackage[a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm,includeheadfoot]{geometry}
-\usepackage{fontspec}
-\usepackage{setspace}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{titlesec}
-\usepackage{pdfpages}
-\usepackage{setspace}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{float}
-\usepackage{caption}
+\documentclass[lab-report]{../../bithesis/bitart}
 
 
 % 将你的相关信息替换如下示例
@@ -28,47 +16,11 @@
 \newcommand{\yourName}{惠计算}
 \newcommand{\teacherName}{张哈希}
 
+
 % 定义一个概念
 % \newtheorem{definition}{概念}[section]
 
-% 将西文字体设置为 Times New Roman
-\setromanfont{Times New Roman}
-
-% 设置引用位于右上角
-\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
-
-% 设置文档标题深度
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
-
-%%
-% 设置一级标题、二级标题格式
-\ctexset{section={
-  format={\raggedright \bfseries \songti \zihao{-3}},
-  name = {,.},
-  number = \chinese{section}
-  }
-}
-\ctexset{subsection={
-  format = {\bfseries \songti \raggedright \zihao{-4}},
-  }
-}
-
 \begin{document}
-
-\input{misc/cover_v1.tex}
-
-%%
-% 正文开始
-\pagestyle{fancy}
-% 正文从第一页开始计算页码
-\setcounter{page}{1}
-% 页眉和页脚（页码）的格式设定
-\fancyhf{}
-\fancyhead[L]{\fontsize{10.5pt}{10.5pt}\selectfont\kaishu{\reportName}}
-\fancyfoot[C]{\fontsize{9pt}{9pt}\selectfont\kaishu{\thepage}}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0pt}
 
 \section{实验目的}
 \begin{enumerate}
