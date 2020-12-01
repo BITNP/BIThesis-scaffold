@@ -275,5 +275,8 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
+bitart.cls
+bitbook.cls
+
 node_modules
 wiki/.vuepress/dist
