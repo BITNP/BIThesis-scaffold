@@ -7,14 +7,13 @@ CACHE_CUR_VERSION_FILE=cache_current_version.txt
 
 # download latest files if not cached
 
-curl -L -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/$REPO/releases/latest > $CACHE_FILE
-
 print "get current version"
 
 if [[ -f "$CACHE_CUR_VERSION_FILE" ]] {
   CUR_VERSION=`cat $CACHE_CUR_VERSION_FILE`
 } else {
+  curl -L -H "Accept: application/vnd.github.v3+json" \
+    https://api.github.com/repos/$REPO/releases/latest > $CACHE_FILE
   CUR_VERSION=""
 }
 
