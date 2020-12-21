@@ -49,6 +49,7 @@ for i ($ZIP_URL){
     unzip -o $file_name
     dir_name=${file_name%.zip}
     cd $dir_name
+    rm *.pdf
     latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex main.tex
     cd ../
     cd ../$dir_name
