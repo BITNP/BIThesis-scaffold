@@ -280,3 +280,4 @@ bitbook.cls
 
 node_modules
 wiki/.vuepress/dist
+*.pdf
