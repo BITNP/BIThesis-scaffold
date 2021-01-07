@@ -48,11 +48,11 @@ for i ($ZIP_URL){
     unzip -o $file_name
     dir_name=${file_name%.zip}
     cd $dir_name
-    rm *.pdf *.aux
+    rm -f *.pdf *.aux
     latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex main.tex
     cd ../
     cd ../$dir_name
-    rm *.pdf *.aux
+    rm -f *.pdf *.aux
     latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex main.tex
     cd $ORI_PWD
     diff-pdf --view ./$dir_name/main.pdf ../$dir_name/main.pdf
