@@ -12,6 +12,13 @@
 *.cb2
 .*.lb
 
+scripts/*.zip
+scripts/latest.json
+scripts/cache_current_version.txt
+scripts/graduation-thesis
+scripts/lab-report
+scripts/proposal-report
+
 ## Intermediate documents:
 *.dvi
 *.xdv
