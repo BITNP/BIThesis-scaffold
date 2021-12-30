@@ -1,4 +1,6 @@
 set -e
+${USE_GHPROXY:=true}
+
 REPO=BITNP/BIThesis
 
 CACHE_FILE=latest.json
@@ -31,7 +33,11 @@ if [[ $VERSION != $CUR_VERSION ]] {
 
   for i ($ZIP_URL) {
     if [[ $i == *.zip ]] {
-      wget $i
+      if [[ $USE_GHPROXY == true ]] {
+        wget https://ghproxy.com/$i
+      } else {
+        wget $i
+      }
     }
   }
   echo $VERSION > $CACHE_CUR_VERSION_FILE
