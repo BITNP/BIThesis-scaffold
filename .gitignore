@@ -18,6 +18,7 @@ scripts/cache_current_version.txt
 scripts/graduation-thesis
 scripts/lab-report
 scripts/proposal-report
+scripts/paper-translation
 
 ## Intermediate documents:
 *.dvi
