@@ -32,20 +32,34 @@
   \makeatletter
   \@ifundefined{externalMentorName}{
     % 校内毕设封面顶部间距
-    \vspace*{19mm}
+    \vspace*{0mm}
   }{
     % 校外毕设封面顶部间距
-    \vspace*{13mm}
+    \vspace*{8mm}
   }
   \centering
 
-  \includegraphics[width=9.87cm]{images/header.png}
+  \includegraphics[width=6.87cm]{images/header.png}
 
-  \vspace*{-3mm}
+  \vspace{1mm}
 
-  \zihao{-0}\textbf{\ziju{0.12}\songti{本科生毕业设计（论文）外文翻译}}
+  \zihao{2}\textbf{\songti{本科生毕业设计（论文）外文翻译}}
 
-  \vspace{16mm}
+  \vspace{7mm}
+
+  {
+
+  \flushleft
+  \begin{spacing}{1.8}
+    \hspace{7mm}\songti\zihao{-3}\selectfont{{\zihao{4}\textbf{\parbox[b]{5em}{\flushright 外文原文题\\目：\hspace{1em}}}}\dunderline[-10pt]{1pt}{\makebox[118mm][c]{\strut{}\shortstack{\paperTransOriginTitle}}}}
+
+    \hspace{7mm}\songti\zihao{-3}\selectfont{{\zihao{4}\textbf{\parbox[b]{5em}{\flushright 中文翻译题\\目：\hspace{1em}}}}\dunderline[-10pt]{1pt}{\makebox[118mm][c]{\strut{}\shortstack{\paperTransTitle}}}}
+
+  \end{spacing}
+
+  }
+
+  \vspace{12mm}
 
   \zihao{2}\textbf{\xihei\thesisTitle}
 
@@ -55,7 +69,7 @@
     \zihao{3}\selectfont{\textbf{\thesisTitleEN}}
   \end{spacing}
 
-  \vspace{15mm}
+  \vspace{9mm}
 
   \flushleft
 
@@ -93,6 +107,6 @@
   }
 
   \vspace*{\fill}
-  \centering
-  \zihao{3}\ziju{0.5}\songti{\today}
+  %\centering
+  %\zihao{3}\ziju{0.5}\songti{\today}
 \end{titlepage}
