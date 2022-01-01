@@ -19,19 +19,24 @@
 %
 % Compile with: xelatex -> biber -> xelatex -> xelatex
 
+
 % 章节支持、单面打印：ctexbook
 \documentclass[bachelor,translation]{bitbook}
 
 % 参考文献引用文件位于 misc/ref.bib
 \addbibresource{misc/ref.bib}
 
+% 在这里填写你的外文翻译中英文题目
+\newcommand{\paperTransOriginTitle}{\strut{}填写你的外文翻译原英文题目\\文本超过一行请换行}
+\newcommand{\paperTransTitle}{填写你的外文翻译中文题目}
+
 % 在这里填写你的论文中英文题目
-\newcommand{\thesisTitle}{北京理工大学本科生毕业设计（论文）外文翻译题目}
-\newcommand{\thesisTitleEN}{The Subject of Paper Translation of Undergraduate Graduation Project (Thesis) of Beijing Institute of Technology}
+\newcommand{\thesisTitle}{北京理工大学本科生毕业设计（论文）题目}
+\newcommand{\thesisTitleEN}{The Subject of Undergraduate Graduation Project (Thesis) of Beijing Institute of Technology}
 
 % 在这里填写你的相关信息
-\newcommand{\deptName}{请按照学院要求}
-\newcommand{\majorName}{在打印后替换该封面}
+\newcommand{\deptName}{计算机学院}
+\newcommand{\majorName}{计算机科学与技术}
 \newcommand{\yourName}{惠计算}
 \newcommand{\yourStudentID}{11xxxxxxxx}
 \newcommand{\mentorName}{张哈希}
