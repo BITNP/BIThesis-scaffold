@@ -13,6 +13,7 @@
 .*.lb
 
 scripts/*.zip
+scripts/*.png
 scripts/latest.json
 scripts/cache_current_version.txt
 scripts/graduation-thesis
