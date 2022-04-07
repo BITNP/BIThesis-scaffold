@@ -13,6 +13,8 @@
 
 <div align="center">
 
+# This Project has been Merged to [BIThesis](https://github.com/BITNP/BIThesis)
+
 :raised_hand: **BIThesis 正在招募项目维护者！** :raised_hand: 如果你对 LaTeX 有使用经验、有兴趣进一步学习、有 Git 使用经验、并且希望帮助这个项目变得更好的话。欢迎与 [Feng Kaiyu](https://github.com/fky2015) 取得联系，加入我们。
 
 </div>
